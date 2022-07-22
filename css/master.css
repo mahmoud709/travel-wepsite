@@ -1,0 +1,782 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nunito:wght@200;300;400;500;600&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400;1,500;1,600&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+}
+/* body.active{
+    --main-color:#333;
+    --second-color:#F79F1F;
+    --primary-color:#fff;
+    --color:#222;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.4);
+} */
+:root {
+  --main-color: #fff;
+  --second-color: #f79f1f;
+  --primary-color: #444;
+  --color: #eee;
+  --other: rgb(82, 82, 82);
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+html::-webkit-scrollbar {
+  width: 0.6rem;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--second-color);
+}
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* .container {
+  width: 1150px;
+  margin: 0 auto;
+  padding: 15px;
+} */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 7%;
+  box-shadow: var(--box-shadow);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10000;
+}
+header .logo a {
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+header .logo a i {
+  color: var(--second-color);
+  padding: 0 8px;
+}
+.searchbox {
+  border-radius: 10px;
+  background-color: var(--color);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.searchbox input {
+  border-radius: inherit;
+  width: 400px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background-color: var(--color);
+  -webkit-border-radius: inherit;
+  -moz-border-radius: inherit;
+  -ms-border-radius: inherit;
+  -o-border-radius: inherit;
+}
+.searchbox label {
+  padding: 10px;
+  cursor: pointer;
+}
+.searchbox label:hover {
+  color: var(--second-color);
+}
+.searchbox input::placeholder {
+  padding: 15px 10px;
+}
+
+.icons div {
+  font-size: 20px;
+  background-color: var(--color);
+  padding: 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.icons div:hover {
+  background-color: var(--second-color);
+}
+
+.navbar {
+  position: absolute;
+  top: 100%;
+  left: 77%;
+  background-color: var(--main-color);
+  width: 240px;
+  box-shadow: var(--box-shadow);
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform-origin: top right;
+  z-index: 120;
+}
+.navbar a {
+  text-decoration: none;
+  padding: 15px 8px;
+  margin: 0px 12px;
+  font-size: 18px;
+  display: block;
+  color: var(--primary-color);
+}
+.navbar a:first-child {
+  margin-top: 8px;
+}
+.navbar a:last-child {
+  margin-bottom: 8px;
+}
+.navbar a:hover {
+  color: var(--second-color);
+  padding-left: 25px;
+  background-color: var(--color);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.active {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+.login-form {
+  position: absolute;
+  top: 100%;
+  left: 75%;
+  background-color: var(--main-color);
+  box-shadow: var(--box-shadow);
+  width: 260px;
+  height: 250px;
+  padding: 12px 25px;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform-origin: top left;
+  z-index: 120;
+}
+.login-form.active {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+.login-form label {
+  letter-spacing: 1.2px;
+  color: rgb(143, 139, 139);
+}
+.login-form .special {
+  margin: 12px 0px;
+  width: 100%;
+  height: 36px;
+  border: none;
+  outline: none;
+  background-color: var(--color);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+.login-form input::-webkit-input-placeholder {
+  padding: 12px;
+}
+.login-form :last-child {
+  font-size: 20px;
+  height: 35px;
+  color: var(--main-color);
+  border: none;
+  cursor: pointer;
+  background-color: var(--second-color);
+}
+
+/* End header */
+
+/* scroll button  */
+
+#scroll_button {
+  position: fixed;
+  right: 16px;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  color: var(--color);
+  background-color: var(--second-color);
+  text-align: center;
+  cursor: pointer;
+}
+#scroll_button span {
+  color: var(--main-color);
+  font-size: 40px;
+}
+/* Start home section */
+
+.home {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 0 250px;
+  padding: 1% 5%;
+  position: relative;
+}
+
+.home .text-intro h1 {
+  color: var(--primary-color);
+}
+.home .text-intro p {
+  width: 60%;
+  letter-spacing: 1.2px;
+  line-height: 1.3;
+}
+.text-intro {
+  position: absolute;
+  top: 30%;
+  left: 55%;
+}
+.home .text-intro .btn1 {
+  background-color: var(--second-color);
+  border: none;
+  outline: none;
+  width: 170px;
+  height: 45px;
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+/* Start booking section */
+.booking {
+  box-shadow: var(--box-shadow);
+  padding: 3% 2%;
+  width: 1000px;
+  margin: 10% auto;
+}
+.booking form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+.booking form label {
+  color: rgb(75, 74, 74);
+  padding: 6px 0px;
+}
+.booking form .card input {
+  background-color: rgb(202, 198, 198);
+  border: none;
+  outline: none;
+  height: 35px;
+  width: 230px;
+  margin: 10px 0px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.booking form .card input::-webkit-input-placeholder {
+  padding: 12px;
+}
+
+.booking form .btn input {
+  background-color: var(--second-color);
+  border: none;
+  outline: none;
+  width: 180px;
+  height: 45px;
+  color: var(--main-color);
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+/* Stat style packeges */
+.sp_title {
+  text-align: center;
+}
+.sp_title h1 span {
+  color: var(--second-color);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  margin: 80px;
+}
+.sp_img {
+  width: 420px;
+  height: 350px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  width: 100%;
+}
+.shadow {
+  padding: 16px;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+.sp_p {
+  width: 60%;
+  letter-spacing: 1.2px;
+  line-height: 1.3;
+  color: var(--other);
+}
+.sp_style {
+  border: none;
+  outline: none;
+  background-color: var(--second-color);
+  color: var(--main-color);
+  border-radius: 6px;
+  width: 150px;
+  height: 40px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  cursor: pointer;
+  font-size: 24x;
+  text-transform: capitalize;
+}
+
+.sp_style:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+/* Start services section */
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 35px;
+}
+
+.row .icon {
+  background-color: var(--second-color);
+  color: var(--main-color);
+  padding: 12px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+/* Pricing section */
+
+.pricing .card {
+  width: 410px;
+  height: 550px;
+}
+
+.card .info h2 {
+  text-align: center;
+  background-color: var(--color);
+  border-radius: 8px;
+  height: 30px;
+  width: 320px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  padding: 12px;
+  margin-left: 28px;
+}
+.card .info .plane {
+  margin: 0 auto;
+}
+.card .info p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0px;
+}
+.card .info :nth-child(2) {
+  font-size: 32px;
+  font-weight: 500;
+}
+.card .info :nth-child(2) span {
+  color: var(--second-color);
+}
+.pricing .btn {
+  text-align: center;
+}
+
+/* Contact section */
+textarea {
+  resize: none;
+  width: 770px;
+  height: 220px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.contact {
+  margin: 0 350px;
+}
+.row1,
+.row2,
+.row3 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.contact form input {
+  border: none;
+  outline: none;
+  margin: 10px;
+  width: 400px;
+  height: 15px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.contact .btn {
+  text-align: center;
+  margin: 12px 0px;
+}
+
+/* Blogs section */
+
+hr {
+  background-color: #444;
+}
+.blogs .col1 {
+  padding: 18px;
+}
+.blogs .col1 img {
+  background-color: rgb(224, 222, 222);
+}
+.blogs .col1 img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+/* Start footer */
+
+.col1 .list {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+}
+
+.col1 .list a {
+  text-decoration: none;
+  color: #444;
+  padding: 12px 0px;
+  font-size: 20px;
+}
+.col1 .list a:hover {
+  padding-left: 15px;
+}
+.col1 .list i {
+  margin-right: 8px;
+  color: var(--second-color);
+}
+
+/* End foooter */
+@media (min-width: 320px) and (max-width: 480px) {
+  header {
+    width: 390px;
+    padding: 1rem 1%;
+    box-shadow: var(--box-shadow);
+  }
+  header .logo a {
+    text-decoration: none;
+    font-size: 20px;
+  }
+  header .logo a i {
+    padding: 0 8px;
+  }
+  .searchbox {
+    display: none;
+  }
+  .icons div {
+    font-size: 16px;
+    padding: 12px;
+  }
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 32%;
+  }
+
+  .login-form {
+    position: absolute;
+    top: 100%;
+    left: 22%;
+  }
+  .home .text-intro h1 {
+    font-size: 24px;
+  }
+  .home .text-intro p {
+    width: 100%;
+    letter-spacing: 1px;
+  }
+  .text-intro {
+    top: 100%;
+    left: 10%;
+  }
+  .home .text-intro .btn1 {
+    width: 150px;
+    height: 40px;
+  }
+
+  /* Start booking section */
+  .booking {
+    max-width: 350px;
+    margin: 80% 10px auto;
+  }
+  .booking form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(950px, auto));
+  }
+
+  .booking form .card input {
+    width: 350px;
+    margin: 18px 0px;
+  }
+
+  .booking form .card input::-webkit-input-placeholder {
+    padding: 12px;
+  }
+
+  .booking form .btn input {
+    width: 150px;
+    height: 40px;
+  }
+  /* packege section */
+  .grid {
+    margin: 20px;
+  }
+  .sp_img {
+    width: 100%;
+    height: 280px;
+  }
+
+  /* Contact section */
+  textarea {
+    width: 300px;
+    height: 220px;
+  }
+
+  .contact {
+    margin: 0 20px;
+  }
+  .row1,
+  .row2,
+  .row3 {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .contact form input {
+    width: 300px;
+  }
+
+  .contact .btn {
+    text-align: center;
+    margin: 12px 0px;
+  }
+
+  /* Pricing section */
+  .pricing .card {
+    width: 325px;
+    height: 560px;
+  }
+
+  .card .info h2 {
+    height: 30px;
+    width: 250px;
+  }
+  .card .info .plane {
+    margin: 0 auto;
+  }
+  .card .info p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0px;
+  }
+
+  /* scroll btn */
+  #scroll_button {
+    right: 8px;
+    bottom: 30px;
+    width: 48px;
+    height: 48px;
+  }
+  #scroll_button span {
+    color: var(--main-color);
+    font-size: 28px;
+  }
+}
+
+/* other media */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  header {
+    padding: 1rem 1%;
+  }
+
+  .searchbox input {
+    width: 250px;
+    height: 50px;
+  }
+  .navbar {
+    top: 100%;
+    left: 62%;
+  }
+
+  .login-form {
+    top: 100%;
+    left: 53%;
+  }
+  .home .text-intro h1 {
+    font-size: 24px;
+  }
+  .home .text-intro p {
+    width: 100%;
+    letter-spacing: 1px;
+  }
+  .text-intro {
+    top: 100%;
+    left: 10%;
+  }
+  .home .text-intro .btn1 {
+    width: 150px;
+    height: 40px;
+  }
+
+  /* Start booking section */
+  .booking {
+    padding: 3% 3%;
+    max-width: 430px;
+    margin: 80% 0px auto;
+  }
+  .booking form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(950px, auto));
+  }
+
+  .booking form .card input {
+    width: 420px;
+    margin: 18px 0px;
+  }
+
+  .booking form .card input::-webkit-input-placeholder {
+    padding: 12px;
+  }
+
+  .booking form .btn input {
+    width: 150px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  header {
+    padding: 1rem 1%;
+  }
+
+  .searchbox input {
+    width: 300px;
+    height: 50px;
+  }
+  .navbar {
+    top: 100%;
+    left: 72%;
+  }
+
+  .login-form {
+    top: 100%;
+    left: 65%;
+  }
+  .home .text-intro h1 {
+    font-size: 24px;
+  }
+  .home .text-intro p {
+    width: 100%;
+    letter-spacing: 1px;
+  }
+  .text-intro {
+    top: 100%;
+    left: 10%;
+  }
+  .home .text-intro .btn1 {
+    width: 150px;
+    height: 40px;
+  }
+  /* Start booking section */
+  .booking {
+    padding: 3% 3%;
+    max-width: 720px;
+    margin: 30% 0px auto;
+  }
+  .booking form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+
+  .booking form .card input {
+    width: 320px;
+    margin: 18px 0px;
+  }
+
+  .booking form .card input::-webkit-input-placeholder {
+    padding: 12px;
+  }
+
+  .booking form .btn input {
+    width: 150px;
+    height: 40px;
+  }
+}
